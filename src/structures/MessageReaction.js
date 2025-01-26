@@ -95,7 +95,7 @@ class MessageReaction {
     await this.client.api
       .channels(this.message.channelId)
       .messages(this.message.id)
-      .reactions(this._emoji.identifier)
+      .reactions(this._emoji.identifier + ((this.me || this.meBurst) ? "/@me" : ""))
       .delete();
     return this;
   }
